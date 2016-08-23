@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A9651DF-88A9-4C0B-B0E0-9B1EBA3F829F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Multiplicity.Packets</RootNamespace>
+    <AssemblyName>Multiplicity.Packets</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Tile.cs" />
+    <Compile Include="AlterItemDrop.cs" />
+    <Compile Include="GetChestName.cs" />
+    <Compile Include="NPCUpdate.cs" />
+    <Compile Include="UpdatePlayer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TerrariaPacket.cs" />
+    <Compile Include="Extensions\BinaryWriter.Extensions.cs" />
+    <Compile Include="UnknownPacket.cs" />
+    <Compile Include="Events\PacketEventArgs.cs" />
+    <Compile Include="CRC32.cs" />
+    <Compile Include="AddNPCBuff.cs" />
+    <Compile Include="AddPlayerBuff.cs" />
+    <Compile Include="AnglerQuest.cs" />
+    <Compile Include="CatchNPC.cs" />
+    <Compile Include="ChatMessage.cs" />
+    <Compile Include="ChatMessagev2.cs" />
+    <Compile Include="ChestItem.cs" />
+    <Compile Include="ClientUUID.cs" />
+    <Compile Include="CompleteAnglerQuestToday.cs" />
+    <Compile Include="CompleteConnectionandSpawn.cs" />
+    <Compile Include="ConnectRequest.cs" />
+    <Compile Include="ContinueConnecting.cs" />
+    <Compile Include="ContinueConnecting2.cs" />
+    <Compile Include="CreateCombatText.cs" />
+    <Compile Include="CreateTemporaryAnimation.cs" />
+    <Compile Include="DestroyProjectile.cs" />
+    <Compile Include="Disconnect.cs" />
+    <Compile Include="DoorToggle.cs" />
+    <Compile Include="ForceItemIntoNearestChest.cs" />
+    <Compile Include="GetChestContents.cs" />
+    <Compile Include="GetSection.cs" />
+    <Compile Include="GrowFX.cs" />
+    <Compile Include="HealEffect.cs" />
+    <Compile Include="HealOtherPlayer.cs" />
+    <Compile Include="HitSwitch.cs" />
+    <Compile Include="KillPortal.cs" />
+    <Compile Include="LoadNetModule.cs" />
+    <Compile Include="ManaEffect.cs" />
+    <Compile Include="MassWireOperation.cs" />
+    <Compile Include="MassWireOperationConsume.cs" />
+    <Compile Include="NPCHomeUpdate.cs" />
+    <Compile Include="NPCStrike.cs" />
+    <Compile Include="NPCTeleportThroughPortal.cs" />
+    <Compile Include="NebulaLevelUpRequest.cs" />
+    <Compile Include="NotifyPlayerNPCKilled.cs" />
+    <Compile Include="NotifyPlayerOfEvent.cs" />
+    <Compile Include="NumberOfAnglerQuestsCompleted.cs" />
+    <Compile Include="PaintTile.cs" />
+    <Compile Include="PaintWall.cs" />
+    <Compile Include="PlaceItemFrame.cs" />
+    <Compile Include="PlaceObject.cs" />
+    <Compile Include="PlaceTileEntity.cs" />
+    <Compile Include="PlayMusicItem.cs" />
+    <Compile Include="PlayerActive.cs" />
+    <Compile Include="PlayerDamage.cs" />
+    <Compile Include="PlayerDeath.cs" />
+    <Compile Include="PlayerDodge.cs" />
+    <Compile Include="PlayerHP.cs" />
+    <Compile Include="PlayerInfo.cs" />
+    <Compile Include="PlayerInventorySlot.cs" />
+    <Compile Include="PlayerItemAnimation.cs" />
+    <Compile Include="PlayerMana.cs" />
+    <Compile Include="PlayerNPCTeleport.cs" />
+    <Compile Include="PlayerTeam.cs" />
+    <Compile Include="PlayerTeleportThroughPortal.cs" />
+    <Compile Include="PlayerZone.cs" />
+    <Compile Include="PoofofSmoke.cs" />
+    <Compile Include="RemoveItemOwner.cs" />
+    <Compile Include="ReportInvasionProgress.cs" />
+    <Compile Include="RequestPassword.cs" />
+    <Compile Include="RequestSign.cs" />
+    <Compile Include="SectionTileFrame.cs" />
+    <Compile Include="SendPassword.cs" />
+    <Compile Include="SendSection.cs" />
+    <Compile Include="SendTileSquare.cs" />
+    <Compile Include="SetActiveNPC.cs" />
+    <Compile Include="SetLiquid.cs" />
+    <Compile Include="SetNPCKillCount.cs" />
+    <Compile Include="SetNPCShopItem.cs" />
+    <Compile Include="SetPlayerStealth.cs" />
+    <Compile Include="SocialHandshake.cs" />
+    <Compile Include="SpawnBossInvasion.cs" />
+    <Compile Include="SpawnPlayer.cs" />
+    <Compile Include="SpecialNPCEffect.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="StrikeNPCwithHeldItem.cs" />
+    <Compile Include="SyncExtraValue.cs" />
+    <Compile Include="SyncPlayerChestIndex.cs" />
+    <Compile Include="TeleportationPotion.cs" />
+    <Compile Include="Time.cs" />
+    <Compile Include="ToggleBirthdayParty.cs" />
+    <Compile Include="ToggleGemLock.cs" />
+    <Compile Include="TogglePVP.cs" />
+    <Compile Include="TravellingMerchantInventory.cs" />
+    <Compile Include="Unlock.cs" />
+    <Compile Include="UpdateGoodEvil.cs" />
+    <Compile Include="UpdateItemDrop.cs" />
+    <Compile Include="UpdateItemOwner.cs" />
+    <Compile Include="UpdateMinionTarget.cs" />
+    <Compile Include="UpdateMoonLordCountdown.cs" />
+    <Compile Include="UpdateNPCBuff.cs" />
+    <Compile Include="UpdateNPCName.cs" />
+    <Compile Include="UpdatePlayerBuff.cs" />
+    <Compile Include="UpdateShieldStrengths.cs" />
+    <Compile Include="UpdateSign.cs" />
+    <Compile Include="WiredCannonShot.cs" />
+    <Compile Include="WorldInfo.cs" />
+    <Compile Include="UpdateItemDrop2.cs" />
+    <Compile Include="Extensions\BinaryReader.Extensions.cs" />
+    <Compile Include="PacketTypes.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup />
+</Project>
