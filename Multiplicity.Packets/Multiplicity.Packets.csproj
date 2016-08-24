@@ -40,7 +40,9 @@
     <Compile Include="Models\Tile.cs" />
     <Compile Include="AlterItemDrop.cs" />
     <Compile Include="GetChestName.cs" />
+    <Compile Include="ModifyTile.cs" />
     <Compile Include="NPCUpdate.cs" />
+    <Compile Include="SyncEmoteBubble.cs" />
     <Compile Include="UpdatePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TerrariaPacket.cs" />
