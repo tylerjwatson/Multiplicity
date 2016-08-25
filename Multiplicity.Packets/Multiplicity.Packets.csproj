@@ -37,11 +37,13 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deprecated.cs" />
     <Compile Include="Models\Tile.cs" />
     <Compile Include="AlterItemDrop.cs" />
     <Compile Include="GetChestName.cs" />
     <Compile Include="ModifyTile.cs" />
     <Compile Include="NPCUpdate.cs" />
+    <Compile Include="Null.cs" />
     <Compile Include="ReleaseNPC.cs" />
     <Compile Include="SyncEmoteBubble.cs" />
     <Compile Include="UpdatePlayer.cs" />
