@@ -27,7 +27,8 @@ namespace Multiplicity.Packets
         /// <summary>
         /// Initializes a new instance of the <see cref="SyncEmoteBubble"/> class.
         /// </summary>
-        public SyncEmoteBubble() : base((byte)PacketTypes.SyncEmoteBubble)
+        public SyncEmoteBubble() 
+            : base((byte)PacketTypes.SyncEmoteBubble)
         {
 
         }
@@ -36,7 +37,8 @@ namespace Multiplicity.Packets
         /// Initializes a new instance of the <see cref="SyncEmoteBubble"/> class.
         /// </summary>
         /// <param name="br"></param>
-        public SyncEmoteBubble(BinaryReader br) : base(br)
+        public SyncEmoteBubble(BinaryReader br) 
+            : base(br)
         {
             this.EmoteID = br.ReadInt32(); 
             this.AnchorType = br.ReadByte(); 

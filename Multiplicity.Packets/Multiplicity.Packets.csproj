@@ -42,6 +42,7 @@
     <Compile Include="GetChestName.cs" />
     <Compile Include="ModifyTile.cs" />
     <Compile Include="NPCUpdate.cs" />
+    <Compile Include="ReleaseNPC.cs" />
     <Compile Include="SyncEmoteBubble.cs" />
     <Compile Include="UpdatePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
