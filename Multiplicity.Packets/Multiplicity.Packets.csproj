@@ -37,10 +37,15 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deprecated.cs" />
     <Compile Include="Models\Tile.cs" />
     <Compile Include="AlterItemDrop.cs" />
     <Compile Include="GetChestName.cs" />
+    <Compile Include="ModifyTile.cs" />
     <Compile Include="NPCUpdate.cs" />
+    <Compile Include="Null.cs" />
+    <Compile Include="ReleaseNPC.cs" />
+    <Compile Include="SyncEmoteBubble.cs" />
     <Compile Include="UpdatePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TerrariaPacket.cs" />
@@ -143,6 +148,7 @@
     <Compile Include="UpdatePlayerBuff.cs" />
     <Compile Include="UpdateShieldStrengths.cs" />
     <Compile Include="UpdateSign.cs" />
+    <Compile Include="UpdateTileEntity.cs" />
     <Compile Include="WiredCannonShot.cs" />
     <Compile Include="WorldInfo.cs" />
     <Compile Include="UpdateItemDrop2.cs" />
