@@ -146,6 +146,7 @@
     <Compile Include="UpdatePlayerBuff.cs" />
     <Compile Include="UpdateShieldStrengths.cs" />
     <Compile Include="UpdateSign.cs" />
+    <Compile Include="UpdateTileEntity.cs" />
     <Compile Include="WiredCannonShot.cs" />
     <Compile Include="WorldInfo.cs" />
     <Compile Include="UpdateItemDrop2.cs" />
