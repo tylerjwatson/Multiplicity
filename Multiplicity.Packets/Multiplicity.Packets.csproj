@@ -44,6 +44,7 @@
     <Compile Include="ModifyTile.cs" />
     <Compile Include="NPCUpdate.cs" />
     <Compile Include="Null.cs" />
+    <Compile Include="Placeholder.cs" />
     <Compile Include="ReleaseNPC.cs" />
     <Compile Include="SyncEmoteBubble.cs" />
     <Compile Include="UpdatePlayer.cs" />
