@@ -44,8 +44,11 @@
     <Compile Include="ModifyTile.cs" />
     <Compile Include="NPCUpdate.cs" />
     <Compile Include="Null.cs" />
+    <Compile Include="PlaceChest.cs" />
     <Compile Include="Placeholder.cs" />
+    <Compile Include="ProjectileUpdate.cs" />
     <Compile Include="ReleaseNPC.cs" />
+    <Compile Include="SetChestName.cs" />
     <Compile Include="SyncEmoteBubble.cs" />
     <Compile Include="UpdatePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
