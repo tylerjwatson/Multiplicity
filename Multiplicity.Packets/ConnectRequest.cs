@@ -25,6 +25,16 @@ namespace Multiplicity.Packets
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectRequest"/> class.
         /// </summary>
+        /// <param name="version">The version to be set in the packet</param>
+        public ConnectRequest(string version)
+            : base((byte)PacketTypes.ConnectRequest)
+        {
+            this.Version = version;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConnectRequest"/> class.
+        /// </summary>
         /// <param name="br">br</param>
         public ConnectRequest(BinaryReader br)
             : base(br)
