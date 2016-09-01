@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/tylerjwatson/Multiplicity/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tylerjwatson/Multiplicity</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>
+		- 1.0.6079.37002: Initial release of Multiplicity
+		- 1.1.6089.15820: 
+			* Added [ModifyTile], [SyncEmoteBubble], [ReleaseNPC], [UpdateTile], [Null], [Deprecated], [Placeholder] packets (@ProfessorXZ)
+			* Added Version string constructor to [ConnectRequest] packet (@Celant)
+			* Fixed `ID` field in [PlaceChest] shadowing [TerrariaPacket.ID] field (@tylerjwatson)
+			* Added [PlaceChest], [ProjectileUpdate], [SetChestName] packets (@deathcradle)
+	</releaseNotes>
+    <copyright>Copyright (C) Tyler Watson, 2016</copyright>
+    <tags>Terraria Multiplicity Orion Packets</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>
