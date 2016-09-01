@@ -11,7 +11,7 @@ namespace Multiplicity.Packets
 		public short X { get; set; }
 		public short Y { get; set; }
 		public short Style { get; set; }
-		public short ID { get; set; }
+		public short ChestID { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PlaceChest"/> class.
@@ -31,7 +31,7 @@ namespace Multiplicity.Packets
 			Style = br.ReadInt16();
 
 			//ID = br.ReadInt16();
-			ID = 0; //TODO: Client detection? This is particular field is server->client only
+			ChestID = 0; //TODO: Client detection? This is particular field is server->client only
 		}
 
 		public override string ToString()
@@ -70,7 +70,7 @@ namespace Multiplicity.Packets
 				writer.Write(X);
 				writer.Write(Y);
 				writer.Write(Style);
-				writer.Write(ID);
+				writer.Write(ChestID);
 			}
 		}
 
