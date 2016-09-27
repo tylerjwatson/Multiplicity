@@ -20,6 +20,16 @@ namespace Multiplicity.Packets
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="T:Multiplicity.Packets.Disconnect"/> class.
+        /// </summary>
+        /// <param name="reason">Reason for disconnecting the client.</param>
+        public Disconnect(string reason)
+            : base((byte)PacketTypes.Disconnect)
+        {
+            this.Reason = reason;
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Disconnect"/> class.
         /// </summary>
         /// <param name="br">br</param>
