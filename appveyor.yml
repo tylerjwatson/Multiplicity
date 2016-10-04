@@ -15,3 +15,7 @@ assembly_info:
 build:
   publish_nuget: true
   verbosity: minimal
+deploy:
+- provider: NuGet
+  api_key:
+    secure: VDZFDL3VGpSW2ZInor2BOBJx3A4vFzp+dNBx9KHvRcc+Jhj7kbzUII4gRlrPgBx5
