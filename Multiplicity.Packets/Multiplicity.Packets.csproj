@@ -37,6 +37,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalInvasionSendWaitTime.cs" />
     <Compile Include="CrystalInvasionStart.cs" />
     <Compile Include="CrystalInvasionWipeAll.cs" />
     <Compile Include="Deprecated.cs" />
