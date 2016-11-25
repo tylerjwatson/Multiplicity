@@ -3,44 +3,39 @@
 namespace Multiplicity.Packets
 {
 	/// <summary>
-	/// The CrystalInvasionStart (71) packet.
+	/// The CrystalInvasionWipeAll (72) packet.
 	/// </summary>
-	public class CrystalInvasionStart : TerrariaPacket
+	public class CrystalInvasionWipeAll : TerrariaPacket
 	{
-		public short X { get; set; }
-
-		public short Y { get; set; }
-
 		/// <summary>
-		/// Initializes a new instance of the <see cref="CrystalInvasionStart"/> class.
+		/// Initializes a new instance of the <see cref="CrystalInvasionWipeAll"/> class.
 		/// </summary>
-		public CrystalInvasionStart()
-			: base((byte)PacketTypes.CrystalInvasionStart)
+		public CrystalInvasionWipeAll()
+			: base((byte)PacketTypes.CrytsalInvasionWipeAll)
 		{
 
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="CrystalInvasionStart"/> class.
+		/// Initializes a new instance of the <see cref="CrystalInvasionWipeAll"/> class.
 		/// </summary>
 		/// <param name="br">br</param>
-		public CrystalInvasionStart(BinaryReader br)
-			:base(br)
+		public CrystalInvasionWipeAll(BinaryReader br)
+			: base(br)
 		{
-			X = br.ReadInt16();
-			Y = br.ReadInt16();
+
 		}
 
 		public override string ToString()
 		{
-			return $"[CrystalInvasionStart: X = {X} Y = {Y}]";
+			return $"[CrystalInvaionWipeAll]";
 		}
 
 		#region implemented abstract members of TerrariaPacket
 
 		public override short GetLength()
 		{
-			return (short)(4);
+			return (short)(0);
 		}
 
 		public override void ToStream(Stream stream, bool includeHeader = true)
@@ -61,8 +56,6 @@ namespace Multiplicity.Packets
              * once the payload of data has been sent to the client.
              */
 			using (BinaryWriter br = new BinaryWriter(stream, new System.Text.UTF8Encoding(), leaveOpen: true)) {
-				br.Write(X);
-				br.Write(Y);
 			}
 		}
 
