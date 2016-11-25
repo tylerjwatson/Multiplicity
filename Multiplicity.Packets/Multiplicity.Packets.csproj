@@ -40,6 +40,7 @@
     <Compile Include="CrystalInvasionStart.cs" />
     <Compile Include="CrystalInvasionWipeAll.cs" />
     <Compile Include="Deprecated.cs" />
+    <Compile Include="MinionAttackTargetUpdate.cs" />
     <Compile Include="Models\Tile.cs" />
     <Compile Include="AlterItemDrop.cs" />
     <Compile Include="GetChestName.cs" />
