@@ -3,9 +3,9 @@
 namespace Multiplicity.Packets
 {
 	/// <summary>
-	/// The PlayerHurtV2 (75) packet.
+	/// The PlayerDeathV2 (76) packet.
 	/// </summary>
-	public class PlayerHurtV2 : TerrariaPacket
+	public class PlayerDeathV2 : TerrariaPacket
 	{
 		public byte PlayerId { get; set; }
 
@@ -58,17 +58,15 @@ namespace Multiplicity.Packets
 		public byte HitDirection { get; set; }
 
 		/// <summary>
-		/// BitFlags: 1 = Crit, 2 = PvP
+		/// BitFlags: 1 = PvP
 		/// </summary>
 		public byte Flags { get; set; }
-
-		public byte CooldownCounter { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PlayerHurtV2"/> class.
 		/// </summary>
-		public PlayerHurtV2()
-			: base((byte)PacketTypes.PlayerHurtV2)
+		public PlayerDeathV2()
+			: base((byte)PacketTypes.PlayerDeathV2)
 		{
 
 		}
@@ -77,7 +75,7 @@ namespace Multiplicity.Packets
 		/// Initializes a new instance of the <see cref="PlayerHurtV2"/> class.
 		/// </summary>
 		/// <param name="br">br</param>
-		public PlayerHurtV2(BinaryReader br)
+		public PlayerDeathV2(BinaryReader br)
 			: base (br)
 		{
 			PlayerId = br.ReadByte();
@@ -92,20 +90,19 @@ namespace Multiplicity.Packets
 			Damage = br.ReadInt16();
 			HitDirection = br.ReadByte();
 			Flags = br.ReadByte();
-			CooldownCounter = br.ReadByte();
 		}
 
 		public override string ToString()
 		{
-			return 
-				$"[PlayerHurtV2: PlayerId = {PlayerId} PlayerDeathReason = {PlayerDeathReason} FromPlayerIndex = {FromPlayerIndex} FromNpcIndex = {FromNpcIndex} FromProjectileIndex = {FromProjectileIndex} FromOther = {FromOther} FromProjectileType = {FromProjectileType} FromItemType = {FromItemType} FromItemPrefix = {FromItemPrefix} Damage = {Damage} HitDirection = {HitDirection} Flags = {Flags} CooldownCounter = {CooldownCounter}]";
+			return
+				$"[PlayerDeathV2: PlayerId = {PlayerId} PlayerDeathReason = {PlayerDeathReason} FromPlayerIndex = {FromPlayerIndex} FromNpcIndex = {FromNpcIndex} FromProjectileIndex = {FromProjectileIndex} FromOther = {FromOther} FromProjectileType = {FromProjectileType} FromItemType = {FromItemType} FromItemPrefix = {FromItemPrefix} Damage = {Damage} HitDirection = {HitDirection} Flags = {Flags}]";
 		}
 
 		#region implemented abstract members of TerrariaPacket
 
 		public override short GetLength()
 		{
-			return (short)(19);
+			return (short)(18);
 		}
 
 		public override void ToStream(Stream stream, bool includeHeader = true)
@@ -138,7 +135,6 @@ namespace Multiplicity.Packets
 				br.Write(Damage);
 				br.Write(HitDirection);
 				br.Write(Flags);
-				br.Write(CooldownCounter);
 			}
 		}
 
