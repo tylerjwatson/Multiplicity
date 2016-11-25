@@ -50,6 +50,7 @@
     <Compile Include="Null.cs" />
     <Compile Include="PlaceChest.cs" />
     <Compile Include="Placeholder.cs" />
+    <Compile Include="PlayerHurtV2.cs" />
     <Compile Include="ProjectileUpdate.cs" />
     <Compile Include="ReleaseNPC.cs" />
     <Compile Include="SetChestName.cs" />
