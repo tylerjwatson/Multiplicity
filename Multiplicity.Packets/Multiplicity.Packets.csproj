@@ -37,6 +37,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalInvasionStart.cs" />
     <Compile Include="Deprecated.cs" />
     <Compile Include="Models\Tile.cs" />
     <Compile Include="AlterItemDrop.cs" />

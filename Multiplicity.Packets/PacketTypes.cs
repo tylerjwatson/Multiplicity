@@ -113,7 +113,13 @@
 		/*109*/ MassWireOperation,
 		/*110*/ MassWireOperationConsume,
 		/*111*/ ToggleBirthdayParty,
-		/*112*/ GrowFX
+		/*112*/ GrowFX,
+		/*113*/ CrystalInvasionStart,
+		/*114*/ CrytsalInvasionWipeAll,
+		/*115*/ MinionAttackTargetUpdate,
+		/*116*/ CrystalInvasionSendWaitTime,
+		/*117*/ PlayerHurtV2,
+		/*118*/ PlayerDeathV2
     }
 }
 
