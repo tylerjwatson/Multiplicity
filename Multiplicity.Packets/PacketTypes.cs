@@ -115,7 +115,7 @@
 		/*111*/ ToggleBirthdayParty,
 		/*112*/ GrowFX,
 		/*113*/ CrystalInvasionStart,
-		/*114*/ CrytsalInvasionWipeAll,
+		/*114*/ CrystalInvasionWipeAll,
 		/*115*/ MinionAttackTargetUpdate,
 		/*116*/ CrystalInvasionSendWaitTime,
 		/*117*/ PlayerHurtV2,

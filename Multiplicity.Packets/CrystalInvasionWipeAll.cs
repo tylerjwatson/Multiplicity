@@ -11,7 +11,7 @@ namespace Multiplicity.Packets
 		/// Initializes a new instance of the <see cref="CrystalInvasionWipeAll"/> class.
 		/// </summary>
 		public CrystalInvasionWipeAll()
-			: base((byte)PacketTypes.CrytsalInvasionWipeAll)
+			: base((byte)PacketTypes.CrystalInvasionWipeAll)
 		{
 
 		}

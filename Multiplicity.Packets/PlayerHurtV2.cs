@@ -56,6 +56,8 @@ namespace Multiplicity.Packets
         /// </summary>
         public byte FromItemPrefix { get; set; }
 
+        public string FromCustomReason { get; set; }
+
         public short Damage { get; set; }
 
         public byte HitDirection { get; set; }
@@ -128,6 +130,12 @@ namespace Multiplicity.Packets
                 _length += 1;
             }
 
+            if (PlayerDeathReason.ReadBit(7))
+            {
+                FromCustomReason = br.ReadString();
+                _length += FromCustomReason.Length;
+            }
+
             Damage = br.ReadInt16();
             HitDirection = br.ReadByte();
             Flags = br.ReadByte();
@@ -136,7 +144,7 @@ namespace Multiplicity.Packets
         public override string ToString()
         {
             return
-                $"[PlayerHurtV2: PlayerId = {PlayerId} PlayerDeathReason = {PlayerDeathReason} FromPlayerIndex = {FromPlayerIndex} FromNpcIndex = {FromNpcIndex} FromProjectileIndex = {FromProjectileIndex} FromOther = {FromOther} FromProjectileType = {FromProjectileType} FromItemType = {FromItemType} FromItemPrefix = {FromItemPrefix} Damage = {Damage} HitDirection = {HitDirection} Flags = {Flags} CooldownCounter = {CooldownCounter}]";
+                $"[PlayerHurtV2: PlayerId = {PlayerId} PlayerDeathReason = {PlayerDeathReason} FromPlayerIndex = {FromPlayerIndex} FromNpcIndex = {FromNpcIndex} FromProjectileIndex = {FromProjectileIndex} FromOther = {FromOther} FromProjectileType = {FromProjectileType} FromItemType = {FromItemType} FromItemPrefix = {FromItemPrefix} FromCustomReason = {FromCustomReason} Damage = {Damage} HitDirection = {HitDirection} Flags = {Flags} CooldownCounter = {CooldownCounter}]";
         }
 
         #region implemented abstract members of TerrariaPacket

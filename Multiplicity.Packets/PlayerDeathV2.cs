@@ -21,17 +21,17 @@ namespace Multiplicity.Packets
         /// <summary>
         /// Only in PvP.
         /// </summary>
-        public short FromPlayerIndex { get; set; } = -1;
+        public short FromPlayerIndex { get; set; }
 
         /// <summary>
         /// Only if hurt by an npc.
         /// </summary>
-        public short FromNpcIndex { get; set; } = -1;
+        public short FromNpcIndex { get; set; }
 
         /// <summary>
         /// Only in PvP.
         /// </summary>
-        public short FromProjectileIndex { get; set; } = -1;
+        public short FromProjectileIndex { get; set; }
 
         /// <summary>
         /// 0 = Fall damage, 1 = Drowning, 2 = Lava damage, 3 = Fall damage, 4 = Demon Altar,
@@ -55,6 +55,8 @@ namespace Multiplicity.Packets
         /// Only in PvP.
         /// </summary>
         public byte FromItemPrefix { get; set; }
+
+        public string FromCustomReason { get; set; }
 
         public short Damage { get; set; }
 
@@ -126,6 +128,12 @@ namespace Multiplicity.Packets
                 _length += 1;
             }
 
+            if (PlayerDeathReason.ReadBit(7))
+            {
+                FromCustomReason = br.ReadString();
+                _length += FromCustomReason.Length;
+            }
+
             Damage = br.ReadInt16();
             HitDirection = br.ReadByte();
             Flags = br.ReadByte();
@@ -134,7 +142,7 @@ namespace Multiplicity.Packets
         public override string ToString()
         {
             return
-                $"[PlayerDeathV2: PlayerId = {PlayerId} PlayerDeathReason = {PlayerDeathReason} FromPlayerIndex = {FromPlayerIndex} FromNpcIndex = {FromNpcIndex} FromProjectileIndex = {FromProjectileIndex} FromOther = {FromOther} FromProjectileType = {FromProjectileType} FromItemType = {FromItemType} FromItemPrefix = {FromItemPrefix} Damage = {Damage} HitDirection = {HitDirection} Flags = {Flags}]";
+                $"[PlayerDeathV2: PlayerId = {PlayerId} PlayerDeathReason = {PlayerDeathReason} FromPlayerIndex = {FromPlayerIndex} FromNpcIndex = {FromNpcIndex} FromProjectileIndex = {FromProjectileIndex} FromOther = {FromOther} FromProjectileType = {FromProjectileType} FromItemType = {FromItemType} FromItemPrefix = {FromItemPrefix} FromCustomReason = {FromCustomReason} Damage = {Damage} HitDirection = {HitDirection} Flags = {Flags}]";
         }
 
         #region implemented abstract members of TerrariaPacket
