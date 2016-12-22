@@ -37,7 +37,12 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalInvasionSendWaitTime.cs" />
+    <Compile Include="CrystalInvasionStart.cs" />
+    <Compile Include="CrystalInvasionWipeAll.cs" />
     <Compile Include="Deprecated.cs" />
+    <Compile Include="Extensions\Byte.Extensions.cs" />
+    <Compile Include="MinionAttackTargetUpdate.cs" />
     <Compile Include="Models\Tile.cs" />
     <Compile Include="AlterItemDrop.cs" />
     <Compile Include="GetChestName.cs" />
@@ -46,6 +51,8 @@
     <Compile Include="Null.cs" />
     <Compile Include="PlaceChest.cs" />
     <Compile Include="Placeholder.cs" />
+    <Compile Include="PlayerDeathV2.cs" />
+    <Compile Include="PlayerHurtV2.cs" />
     <Compile Include="ProjectileUpdate.cs" />
     <Compile Include="ReleaseNPC.cs" />
     <Compile Include="SetChestName.cs" />
@@ -160,5 +167,4 @@
     <Compile Include="PacketTypes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup />
 </Project>
