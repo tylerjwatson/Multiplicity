@@ -8,7 +8,7 @@ namespace Multiplicity.Packets
     /// </summary>
     public class PlayerHurtV2 : TerrariaPacket
     {
-        private int _length;
+        private int _packetLength;
 
         public byte PlayerId { get; set; }
 
@@ -21,25 +21,26 @@ namespace Multiplicity.Packets
         /// <summary>
         /// Only in PvP.
         /// </summary>
-        public short FromPlayerIndex { get; set; }
+        public short FromPlayerIndex { get; set; } = -1;
 
         /// <summary>
         /// Only if hurt by an npc.
         /// </summary>
-        public short FromNpcIndex { get; set; }
+        public short FromNpcIndex { get; set; } = -1;
 
         /// <summary>
         /// Only in PvP.
         /// </summary>
-        public short FromProjectileIndex { get; set; }
+        public short FromProjectileIndex { get; set; } = -1;
 
         /// <summary>
         /// 0 = Fall damage, 1 = Drowning, 2 = Lava damage, 3 = Fall damage, 4 = Demon Altar,
         /// 5 = N/A, 6 = Companion Cube, 7 = Suffocation, 8 = Burning, 9 = Poison/Venom,
         /// 10 = Electrified, 11 = WoF (escaped), 12 = WoF (licked), 13 = Chaos State,
         /// 14 = Chaos State V2 (male), 15 = Chaos State V2 (female)
+        /// 254 = nothing
         /// </summary>
-        public byte FromOther { get; set; }
+        public byte FromOther { get; set; } = 254;
 
         /// <summary>
         /// Only in PvP.
@@ -91,49 +92,49 @@ namespace Multiplicity.Packets
             if (PlayerDeathReason.ReadBit(0))
             {
                 FromPlayerIndex = br.ReadInt16();
-                _length += 2;
+                _packetLength += 2;
             }
 
             if (PlayerDeathReason.ReadBit(1))
             {
                 FromNpcIndex = br.ReadInt16();
-                _length += 2;
+                _packetLength += 2;
             }
 
             if (PlayerDeathReason.ReadBit(2))
             {
                 FromProjectileIndex = br.ReadInt16();
-                _length += 2;
+                _packetLength += 2;
             }
 
             if (PlayerDeathReason.ReadBit(3))
             {
                 FromOther = br.ReadByte();
-                _length += 1;
+                _packetLength += 1;
             }
 
             if (PlayerDeathReason.ReadBit(4))
             {
                 FromProjectileType = br.ReadInt16();
-                _length += 2;
+                _packetLength += 2;
             }
 
             if (PlayerDeathReason.ReadBit(5))
             {
                 FromItemType = br.ReadInt16();
-                _length += 2;
+                _packetLength += 2;
             }
 
             if (PlayerDeathReason.ReadBit(6))
             {
                 FromItemPrefix = br.ReadByte();
-                _length += 1;
+                _packetLength += 1;
             }
 
             if (PlayerDeathReason.ReadBit(7))
             {
                 FromCustomReason = br.ReadString();
-                _length += FromCustomReason.Length;
+                _packetLength += FromCustomReason.Length;
             }
 
             Damage = br.ReadInt16();
@@ -174,13 +175,55 @@ namespace Multiplicity.Packets
             using (BinaryWriter br = new BinaryWriter(stream, new System.Text.UTF8Encoding(), leaveOpen: true)) {
                 br.Write(PlayerId);
                 br.Write(PlayerDeathReason);
-                br.Write(FromPlayerIndex);
-                br.Write(FromNpcIndex);
-                br.Write(FromProjectileIndex);
-                br.Write(FromOther);
-                br.Write(FromProjectileType);
-                br.Write(FromItemType);
-                br.Write(FromItemPrefix);
+
+                if (FromPlayerIndex != -1)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(0, true);
+                    br.Write(FromPlayerIndex);
+                }
+
+                if (FromNpcIndex != -1)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(1, true);
+                    br.Write(FromNpcIndex);
+                }
+
+                if (FromProjectileIndex != -1)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(2, true);
+                    br.Write(FromProjectileIndex);
+                }
+
+                if (FromOther != 254)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(3, true);
+                    br.Write(FromOther);
+                }
+
+                if (FromProjectileType != 0)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(4, true);
+                    br.Write(FromProjectileType);
+                }
+
+                if (FromItemType != 0)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(5, true);
+                    br.Write(FromItemType);
+                }
+
+                if (FromItemPrefix != 0)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(6, true);
+                    br.Write(FromItemPrefix);
+                }
+
+                if (FromCustomReason != null)
+                {
+                    PlayerDeathReason = PlayerDeathReason.SetBit(7, true);
+                    br.Write(FromCustomReason);
+                }
+
                 br.Write(Damage);
                 br.Write(HitDirection);
                 br.Write(Flags);
