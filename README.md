@@ -1,6 +1,6 @@
 # Multiplicity
 
-Multiplicity is a low-level terraria packet deserialization/serialization library.  It understands Terraria multiplayer messages sent to and from a terraria server, and can translate Terraria packets to and from strongly-typed objects.    It is licensed under GPLv3, and is available as a NuGet package.
+Multiplicity is a low-level Terraria packet deserialization/serialization library.  It understands Terraria multiplayer messages sent to and from a Terraria server, and can translate Terraria packets to and from strongly-typed objects.    It is licensed under GPLv3, and is available as a NuGet package.
 
 Multiplicity is 100% pure C# class libraries, and has **no** package dependencies, or build options.
 
@@ -12,4 +12,4 @@ Multiplicity's packet engine is available from [NuGet](https://www.nuget.org/pac
 Install-Package Multiplicity.Packets
 ```
 
-Multiplciity network libraries are coming soon.
+Multiplicity network libraries are coming soon.
