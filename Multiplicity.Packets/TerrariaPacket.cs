@@ -7,7 +7,7 @@ namespace Multiplicity.Packets
     /// <summary>
     /// Abstract base class generically representing a terraria packet.
     /// </summary>
-    public abstract class TerrariaPacket
+    public abstract class TerrariaPacket : TerrariaNetworkObject
     {
         public const short PACKET_HEADER_LEN = 3;
         public byte[] TestRawBuffer { get; set; }
@@ -144,11 +144,6 @@ namespace Multiplicity.Packets
         };
 
         /// <summary>
-        /// Gets the packet length in bytes.
-        /// </summary>
-        public abstract short GetLength();
-
-        /// <summary>
         /// Gets or sets the Packet ID.
         /// </summary>
         public byte ID { get; protected set; }
@@ -163,12 +158,6 @@ namespace Multiplicity.Packets
                 return (PacketTypes)this.ID;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the CRC32 hash for this TerrariaPacket.
-        /// </summary>
-        /// <value>The CRC.</value>
-        public uint CRC { get; internal set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TerrariaPacket"/> with 
@@ -232,38 +221,26 @@ namespace Multiplicity.Packets
             return Deserialize(br, id);
         }
 
-        /// <summary>
-        /// Serializes this TerrariaPacket instance into the provided stream.
-        /// </summary>
-        /// <param name="stream">
-        /// A reference to a valid, open, and writable stream object in which to serialize this
-        /// instance to.
-        /// </param>
-        public virtual void ToStream(Stream stream, bool includeHeader = true)
-        {
-            if (includeHeader == false)
-            {
-                return;
-            }
+		/// <summary>
+		/// Serializes this TerrariaNetworkObject instance into the provided stream.
+		/// </summary>
+		/// <param name="stream">
+		/// A reference to a valid, open, and writable stream object in which to serialize this
+		/// instance to.
+		/// </param>
+		public override void ToStream(Stream stream, bool includeHeader = true)
+		{
+			if (includeHeader == false)
+			{
+				return;
+			}
 
-            using (BinaryWriter br = new BinaryWriter(stream, System.Text.Encoding.UTF8, leaveOpen: true))
-            {
-                br.Write((short)(GetLength() + PACKET_HEADER_LEN));
-                br.Write(ID);
-            }
-        }
-
-        /// <summary>
-        /// Returns a byte array with the binary contents of this TerrariaPacket instance.
-        /// </summary>
-        public virtual byte[] ToArray(bool includeHeader = true)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                ToStream(ms, includeHeader);
-                return ms.ToArray();
-            }
-        }
-    }
+			using (BinaryWriter br = new BinaryWriter(stream, System.Text.Encoding.UTF8, leaveOpen: true))
+			{
+				br.Write((short)(GetLength() + PACKET_HEADER_LEN));
+				br.Write(ID);
+			}
+		}
+	}
 }
 

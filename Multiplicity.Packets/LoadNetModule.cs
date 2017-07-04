@@ -7,6 +7,7 @@ namespace Multiplicity.Packets
     /// </summary>
     public class LoadNetModule : TerrariaPacket
     {
+		public TerrariaNetModule LoadedModule { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LoadNetModule"/> class.
@@ -14,7 +15,7 @@ namespace Multiplicity.Packets
         public LoadNetModule()
             : base((byte)PacketTypes.LoadNetModule)
         {
-
+			
         }
 
         /// <summary>
@@ -24,7 +25,8 @@ namespace Multiplicity.Packets
         public LoadNetModule(BinaryReader br)
             : base(br)
         {
-        }
+			LoadedModule = TerrariaNetModule.Deserialize(br);
+		}
 
         public override string ToString()
         {
@@ -47,7 +49,7 @@ namespace Multiplicity.Packets
                 base.ToStream(stream, includeHeader);
             }
 
-            /*
+			/*
              * Always make sure to not close the stream when serializing.
              * 
              * It is up to the caller to decide if the underlying stream
@@ -55,8 +57,7 @@ namespace Multiplicity.Packets
              * the regressions of unconditionally closing the TCP socket
              * once the payload of data has been sent to the client.
              */
-            using (BinaryWriter br = new BinaryWriter(stream, new System.Text.UTF8Encoding(), leaveOpen: true)) {
-            }
+			LoadedModule.ToStream(stream, includeHeader);
         }
 
         #endregion
