@@ -1,7 +1,10 @@
 version: 1.2.{build}
+pull_requests:
+        do_not_increment_build_number: true
 branches:
   only:
   - master
+  - general-devel
 skip_non_tags: true
 configuration: Release
 platform: Any CPU
