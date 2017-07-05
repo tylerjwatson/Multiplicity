@@ -221,26 +221,26 @@ namespace Multiplicity.Packets
             return Deserialize(br, id);
         }
 
-		/// <summary>
-		/// Serializes this TerrariaNetworkObject instance into the provided stream.
-		/// </summary>
-		/// <param name="stream">
-		/// A reference to a valid, open, and writable stream object in which to serialize this
-		/// instance to.
-		/// </param>
-		public override void ToStream(Stream stream, bool includeHeader = true)
-		{
-			if (includeHeader == false)
-			{
-				return;
-			}
+        /// <summary>
+        /// Serializes this TerrariaNetworkObject instance into the provided stream.
+        /// </summary>
+        /// <param name="stream">
+        /// A reference to a valid, open, and writable stream object in which to serialize this
+        /// instance to.
+        /// </param>
+        public override void ToStream(Stream stream, bool includeHeader = true)
+        {
+          if (includeHeader == false)
+          {
+            return;
+          }
 
-			using (BinaryWriter br = new BinaryWriter(stream, System.Text.Encoding.UTF8, leaveOpen: true))
-			{
-				br.Write((short)(GetLength() + PACKET_HEADER_LEN));
-				br.Write(ID);
-			}
-		}
+          using (BinaryWriter br = new BinaryWriter(stream, System.Text.Encoding.UTF8, leaveOpen: true))
+          {
+            br.Write((short)(GetLength() + PACKET_HEADER_LEN));
+            br.Write(ID);
+          }
+        }
 	}
 }
 
